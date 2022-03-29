@@ -1,3 +1,6 @@
+import 'dart:convert';
+
+import 'package:http/http.dart' as http;
 import 'package:api_peliculas/src/models/pelicula_model.dart';
 
 class PeliculasProvider {
@@ -10,5 +13,12 @@ class PeliculasProvider {
       'api_key': _apiKey,
       'language': _language,
     });
+    final resp = await http.get(url);
+    final decodeData = json.decode(resp.body);
+    //print(decodeData);
+    //print(decodeData['results']);
+    final peliculas = new Peliculas.fromJsonList(decodeData['results']);
+    print(peliculas.items[2].title);
+    return peliculas.items;
   }
 }
