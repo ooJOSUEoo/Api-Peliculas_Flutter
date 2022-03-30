@@ -1,5 +1,6 @@
 import 'package:api_peliculas/src/providers/pelicula_provider.dart';
 import 'package:api_peliculas/src/widgets/card_swiper_widget.dart';
+import 'package:api_peliculas/src/widgets/movie_hrizontal.dart';
 import 'package:card_swiper/card_swiper.dart';
 import 'package:flutter/material.dart';
 
@@ -65,7 +66,14 @@ class HomePage extends StatelessWidget {
           FutureBuilder(
             future: peliculasProvider.getPopulares(),
             builder: (BuildContext context, AsyncSnapshot snapshot) {
-              snapshot.data.forEach((p) => print(p.title));
+            // snapshot.data.forEach((p) => print(p.title));
+              if (snapshot.hasData) {
+                return MovieHorizontal(
+                  peliculas: snapshot.data,
+                );
+              } else {
+                return CircularProgressIndicator();
+              }
               return Container();
             },
           ),
