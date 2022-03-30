@@ -52,9 +52,9 @@ class Pelicula {
     voteCount = json['vote_count'];
     id = json['id'];
     video = json['video'];
-    voteAverage = json['vote_average'];
+    voteAverage = json['vote_average'] / 1;
     title = json['title'];
-    popularity = json['popularity'];
+    popularity = json['popularity'] / 1;
     posterPath = json['poster_path'];
     originalLanguage = json['original_language'];
     originalTitle = json['original_title'];
@@ -63,5 +63,13 @@ class Pelicula {
     adult = json['adult'];
     overview = json['overview'];
     releaseDate = json['release_date'];
+  }
+
+  getPosterImg() {
+    if (posterPath == null) {
+      return 'https://upload.wikimedia.org/wikipedia/commons/thumb/a/ac/No_image_available.svg/1024px-No_image_available.svg.png';
+    } else {
+      return 'https://image.tmdb.org/t/p/w500/$posterPath';
+    }
   }
 }
