@@ -2,6 +2,10 @@
 
 A new Flutter project.
 
+App ejemplo para la api de peliculas, con el objetivo de aprender a usar la api de peliculas de la [**TMDb**](https://www.themoviedb.org/).
+
+Hasta el momento solo es el diseño de la app, pero en el futuro se incluiran las funcionalidades de la api.
+
 ## Getting Started
 
 This project is a starting point for a Flutter application.
